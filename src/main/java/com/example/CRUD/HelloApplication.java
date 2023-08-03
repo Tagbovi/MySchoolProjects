@@ -30,7 +30,7 @@ public class HelloApplication extends Application {
         //First Scene (HomePage)
         VBox vBox1=new VBox();
         Label label1 = new Label("Simple CRUD App By Precious");
-
+//Adding an Image
         Image image = new Image(new FileInputStream("C:\\Users\\Administrator\\Downloads\\ima.jpg"));
 
         //Setting the image view
@@ -51,7 +51,8 @@ public class HelloApplication extends Application {
         // Setting the position
         label1.setTranslateX(150);
         label1.setTranslateY(25);
-
+        
+//creating a button
         Button helloApplication_btn=new Button("Open");
         helloApplication_btn.setMinWidth(100);
 
@@ -79,10 +80,12 @@ public class HelloApplication extends Application {
 
 
 
-     //Second scene(Next Page)
+     //Second scene(Next Page) Tableview page
       VBox vBox=new VBox();
 
         scene2 = new Scene( vBox,700, 450);
+        
+        //initialling table and adding columns to table
         tableView=new TableView<>();
         TableColumn<Books,String> scienceBookColomn=new TableColumn<>("Science");
         scienceBookColomn.setMinWidth(200);
@@ -110,7 +113,8 @@ public class HelloApplication extends Application {
         hBox.setPadding(new Insets(10,10,10,10));
 
         vBox.getChildren().addAll(tableView,hBox);
-
+        
+//textfields for entry
         TextField sciencetf=new TextField();
         sciencetf.setPromptText("Science entry field");
         sciencetf.minWidth(50);
@@ -124,22 +128,24 @@ public class HelloApplication extends Application {
         pricetf.setPromptText("Price entry field");
         pricetf.minWidth(50);
 
-
+//addbutton
         Button addbtn=new Button();
         addbtn.setText("Add");
      addbtn.setMinWidth(50);
 
+        //delete button
         Button deletebtn=new Button();
         deletebtn.setText("Delete");
         deletebtn.setMinWidth(50);
 
 
-
+//action listener
         addbtn.setOnAction(actionEvent -> {
            Books books=new Books();
            books.setEnglishBooks(englishtf.getText());
            books.setScienceBooks(sciencetf.getText());
-
+            
+//execption
            try{
                books.setPriceLists(Double.parseDouble(pricetf.getText()));
            }
